@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { RegisterServiceService } from '../../shared/services/register/register-service.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Acceso, UserRegister } from '../../shared/interfaces/register';
 
 @Component({
@@ -15,6 +15,7 @@ import { Acceso, UserRegister } from '../../shared/interfaces/register';
   imports: [ReactiveFormsModule, LoaderComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
+  standalone: true,
 })
 export class RegisterComponent {
   formRegister: FormGroup;
@@ -54,6 +55,7 @@ export class RegisterComponent {
   registerUser(user:UserRegister){
     
   }
+  
   registerAcceso(acceso:Acceso){
     
   }
