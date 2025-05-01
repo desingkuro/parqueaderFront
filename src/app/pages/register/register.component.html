@@ -1,0 +1,120 @@
+<main class="container-main">
+  <section>
+    <form class="form-register" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+      <h2>Registro, parqueadero UNIMAG</h2>
+      <div class="form-group">
+        <label for="">Nombre de usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder=""
+          formControlName="username"
+        />
+        @if(formRegister.get('username')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="Apellido">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder=""
+              formControlName="apellido"
+        />
+        @if(formRegister.get('apellido')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="Genero">Genero</label>
+        <select name="" id="" class="form-control" formControlName="genero">
+          <option value="1">Masculino</option>
+          <option value="2">Femenino</option>
+          <option value="3">Otro</option>
+        </select>
+        @if(formRegister.get('genero')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="">Fecha de nacimiento</label>
+        <input
+          type="date"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder=""
+          formControlName="fechaNacimiento"
+        />
+        @if(formRegister.get('fechaNacimiento')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="">Telefono</label>
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder=""
+          formControlName="telefono"
+        />
+        @if(formRegister.get('telefono')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          formControlName="email"
+        />
+        @if(formRegister.get('email')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+          formControlName="password"
+        />
+        @if(formRegister.get('password')?.invalid){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group form-check"></div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+  </section>
+  @if(isLoading){
+      <app-loader></app-loader>
+  }
+</main>

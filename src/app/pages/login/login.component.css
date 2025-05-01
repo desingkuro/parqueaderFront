@@ -1,0 +1,147 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #C5C5DA;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.main-section{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 40%;
+    min-width: 460px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.main-section__left{
+    gap: 0px;
+    border-bottom-right-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+.main-section__right{
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+.main-section picture{
+    width: 100%;
+    height: 70%;
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.main-section h1{
+    font-size: 2rem;
+}
+
+.main-section p{
+    font-size: 1.2rem;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+
+    height: 100%;
+    min-height: 500px;
+    width: 100%;
+    padding: 10px;
+    gap:40px; 
+}
+
+.form h2{
+    font-size: 2rem;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 10px;
+    position: relative;
+}
+
+.form-group label{
+    font-size: 1.5rem;
+}
+
+.form-group input{
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #C5C5DA;
+    outline: none;
+    background-color: transparent;
+    color: #000000;
+}
+
+.form-group form-check{
+    font-size: 1.5rem;
+} 
+
+.form-group a{
+    font-size: 1rem;
+    color: #2056A7;
+    text-decoration: none;
+}
+
+.form-group__register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-check{
+    font-size: 1rem;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.form-check label{
+    font-size: 1.1rem;
+}
+
+.form button{
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2056A7;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form button:hover{
+    background-color: #1E4A89;
+}
+
+.alert-message{
+    font-size: 1rem !important;
+    color: #FF0000 !important;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+}
+
+
