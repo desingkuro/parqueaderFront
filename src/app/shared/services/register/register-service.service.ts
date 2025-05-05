@@ -12,10 +12,10 @@ export class RegisterServiceService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: UserRegister): Observable<any> {
-    return this.http.post('http://localhost:3000/api/auth/register', user);
+    return this.http.post('http://localhost:3123/api/usuarios/add', user);
   }
 
   registerAcceso(acceso: Acceso): Observable<any>{
-    return this.http.post('http://localhost:3000/api/auth/register', acceso);
+    return this.http.post('http://localhost:3123/api/acceso/create', acceso);
   }
 }

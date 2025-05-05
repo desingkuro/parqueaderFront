@@ -1,18 +1,22 @@
 <main class="container-main">
   <section>
-    <form class="form-register" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+    <form
+      class="form-register"
+      [formGroup]="formRegister"
+      (ngSubmit)="onSubmit()"
+    >
       <h2>Registro, parqueadero UNIMAG</h2>
       <div class="form-group">
-        <label for="">Nombre de usuario</label>
+        <label for="username">Nombre de usuario</label>
         <input
           type="text"
           class="form-control"
-          id=""
+          id="username"
           aria-describedby=""
           placeholder=""
           formControlName="username"
         />
-        @if(formRegister.get('username')?.invalid){
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
@@ -23,12 +27,28 @@
         <input
           type="text"
           class="form-control"
-          id=""
+          id="apellido"
           aria-describedby=""
           placeholder=""
-              formControlName="apellido"
+          formControlName="apellido"
         />
-        @if(formRegister.get('apellido')?.invalid){
+        @if(false){
+        <small id="emailHelp" class="alert-message"
+          >We'll never share your email with anyone else.</small
+        >
+        }
+      </div>
+      <div class="form-group">
+        <label for="documento">Numero de documento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="documento"
+          aria-describedby=""
+          placeholder=""
+          formControlName="documento"
+        />
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
@@ -41,23 +61,23 @@
           <option value="2">Femenino</option>
           <option value="3">Otro</option>
         </select>
-        @if(formRegister.get('genero')?.invalid){
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
         }
       </div>
       <div class="form-group">
-        <label for="">Fecha de nacimiento</label>
+        <label for="fechaNacimiento">Fecha de nacimiento</label>
         <input
           type="date"
           class="form-control"
-          id=""
+          id="fechaNacimiento"
           aria-describedby=""
           placeholder=""
           formControlName="fechaNacimiento"
         />
-        @if(formRegister.get('fechaNacimiento')?.invalid){
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
@@ -68,12 +88,12 @@
         <input
           type="text"
           class="form-control"
-          id=""
+          id="telefono"
           aria-describedby=""
           placeholder=""
           formControlName="telefono"
         />
-        @if(formRegister.get('telefono')?.invalid){
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
@@ -89,7 +109,7 @@
           placeholder="Enter email"
           formControlName="email"
         />
-        @if(formRegister.get('email')?.invalid){
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
@@ -104,17 +124,19 @@
           placeholder="Password"
           formControlName="password"
         />
-        @if(formRegister.get('password')?.invalid){
+        @if(false){
         <small id="emailHelp" class="alert-message"
           >We'll never share your email with anyone else.</small
         >
         }
       </div>
       <div class="form-group form-check"></div>
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+        Submit
+      </button>
     </form>
   </section>
   @if(isLoading){
-      <app-loader></app-loader>
+  <app-loader></app-loader>
   }
 </main>

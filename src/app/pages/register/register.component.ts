@@ -35,13 +35,23 @@ export class RegisterComponent {
       genero: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
       telefono: ['', Validators.required],
+      documento: ['', Validators.required],
     });
   }
 
   onSubmit() {
     const verifiForm = this.verifiForm();
     if(verifiForm){
-      this.registerUser(this.formRegister.value);
+      const userData:UserRegister = {
+        codRol: 1,
+        documentoUsuario: this.formRegister.get("documento")?.value || "",
+        nombresUsuario: this.formRegister.get("username")?.value || "",
+        apellidosUsuario: this.formRegister.get("apellido")?.value || "",
+        generoUsuario: this.formRegister.get("genero")?.value || "",
+        fechaNacimientoUsuario: this.formRegister.get("fechaNacimiento")?.value || "",
+        telefonoUsuario: this.formRegister.get("telefono")?.value || "",
+      }
+      this.registerUser(userData);
     }
   }
 
@@ -53,10 +63,38 @@ export class RegisterComponent {
   }
 
   registerUser(user:UserRegister){
-    
+    this.isLoading = true;
+    let myuuid = crypto.randomUUID();
+    this.userSubscription = this.registerService.registerUser(user).subscribe({
+      next: (response:any) => {
+        this.isLoading = false;
+        console.log(response?.objGrabado?.codUsuario);
+        const acceso:Acceso = {
+          correo: this.formRegister.get("email")?.value || "",
+          clave: this.formRegister.get("password")?.value || "",
+          codUsuario: response?.objGrabado?.codUsuario || 0,
+          uuid: myuuid || "",
+        }
+        this.registerAcceso(acceso);
+      },
+      error: (error) => {
+        this.isLoading = false;
+        console.log(error);
+      },
+    });
   }
   
   registerAcceso(acceso:Acceso){
-    
+    this.isLoading = true;
+    this.accessSubscription = this.registerService.registerAcceso(acceso).subscribe({
+      next: (response:any) => {
+        this.isLoading = false;
+        console.log(response);
+      },
+      error: (error) => {
+        this.isLoading = false;
+        console.log(error);
+      },
+    });
   }
 }

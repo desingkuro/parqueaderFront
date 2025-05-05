@@ -1,14 +1,16 @@
 export interface UserRegister {
-    username: string;
-    apellido: string;
-    genero: string;
-    fechaNacimiento: string;
-    telefono: string;
-    email: string;
-    password: string;
+    codRol: number;
+    documentoUsuario: string;
+    nombresUsuario: string;
+    apellidosUsuario: string;
+    generoUsuario: string;
+    fechaNacimientoUsuario: string;
+    telefonoUsuario: string;
 }
 
 export interface Acceso {
-    username: string;
-    password: string;
+    correo: string;
+    clave: string;
+    codUsuario: number;
+    uuid: string;
 }
