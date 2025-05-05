@@ -17,6 +17,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   formLogin: FormGroup;
+  errorsInputs:string[] = [];
+  
   constructor(
     bulder: FormBuilder,
     private loginService: LoginServicesService,
@@ -31,17 +33,36 @@ export class LoginComponent {
 
   ngOnInit(): void {}
 
-  saveLocalStorage(token:string){
+  saveLocalStorage(token: string) {
     localStorage.setItem('token', token || '');
   }
 
+  verifiForm():boolean{
+    const jsonForm: any = this.formLogin.value;
+    let validForm = true;
+    if (jsonForm) {
+      Object.keys(jsonForm)?.forEach((key: string) => {
+        if (
+          jsonForm[key] === '' ||
+          jsonForm[key] === null ||
+          jsonForm[key] === undefined
+        ) {
+          validForm = false;
+          this.errorsInputs.push(key);
+        }
+      });
+    }
+    return validForm;
+  }
+
   onSubmit(): void {
-    if (this.formLogin.valid) {
+    if (this.verifiForm()) {
       const { correoAcceso, claveAcceso } = this.formLogin.value;
       this.loginService.login({ correoAcceso, claveAcceso }).subscribe({
         next: (response: any) => {
           this.saveLocalStorage(response?.token || '');
           this.formLogin.reset();
+          this.errorsInputs = [];
           this.router.navigate(['/home']);
         },
         error: (error) => {

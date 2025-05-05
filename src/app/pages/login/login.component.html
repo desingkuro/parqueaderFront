@@ -22,7 +22,7 @@
           formControlName="correoAcceso"
           required
         />
-        @if(formLogin.get('correoAcceso')?.invalid){
+        @if(errorsInputs.includes('correoAcceso')){
           <label class="alert-message" for="exampleInputEmail1">Corrija su correo</label>
         }
       </div>
@@ -37,14 +37,14 @@
           formControlName="claveAcceso"
           required
         />
-        @if(formLogin.get('claveAcceso')?.invalid){
+        @if(errorsInputs.includes('claveAcceso')){
           <label class="alert-message" for="exampleInputPassword1">Corrija su contraseña</label>
         }
       </div>
       <div class="form-group form-check">
         <input type="checkbox" formControlName="check" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        @if(formLogin.get('check')?.invalid){
+        @if(errorsInputs.includes('check')){
           <label class="alert-message" for="exampleCheck1">Debe aceptar los terminos y condiciones</label>
         }
       </div>
