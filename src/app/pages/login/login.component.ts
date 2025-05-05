@@ -1,28 +1,53 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { LoginServicesService } from '../../shared/services/login/login-services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  formLogin:FormGroup;
-  constructor(bulder:FormBuilder) {
+  formLogin: FormGroup;
+  constructor(
+    bulder: FormBuilder,
+    private loginService: LoginServicesService,
+    private router: Router
+  ) {
     this.formLogin = bulder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      check: [false, [Validators.required]]
-    })
-   }
-
-  ngOnInit(): void {
-
+      correoAcceso: ['', [Validators.required, Validators.email]],
+      claveAcceso: ['', [Validators.required]],
+      check: [false, [Validators.required]],
+    });
   }
 
-  onSubmit():void{
-    console.log(this.formLogin.value);
+  ngOnInit(): void {}
+
+  saveLocalStorage(token:string){
+    localStorage.setItem('token', token || '');
+  }
+
+  onSubmit(): void {
+    if (this.formLogin.valid) {
+      const { correoAcceso, claveAcceso } = this.formLogin.value;
+      this.loginService.login({ correoAcceso, claveAcceso }).subscribe({
+        next: (response: any) => {
+          this.saveLocalStorage(response?.token || '');
+          this.formLogin.reset();
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 }

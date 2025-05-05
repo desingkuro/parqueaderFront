@@ -19,10 +19,10 @@
           aria-describedby="emailHelp"
           placeholder="Ingrese su correo"
           autocomplete="off"
-          formControlName="email"
+          formControlName="correoAcceso"
           required
         />
-        @if(formLogin.get('email')?.invalid){
+        @if(formLogin.get('correoAcceso')?.invalid){
           <label class="alert-message" for="exampleInputEmail1">Corrija su correo</label>
         }
       </div>
@@ -34,10 +34,10 @@
           id="exampleInputPassword1"
           placeholder="Ingrese su contraseña"
           autocomplete="off"
-          formControlName="password"
+          formControlName="claveAcceso"
           required
         />
-        @if(formLogin.get('password')?.invalid){
+        @if(formLogin.get('claveAcceso')?.invalid){
           <label class="alert-message" for="exampleInputPassword1">Corrija su contraseña</label>
         }
       </div>

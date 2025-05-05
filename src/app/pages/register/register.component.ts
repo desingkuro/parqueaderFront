@@ -9,6 +9,7 @@ import { LoaderComponent } from '../../shared/components/loader/loader.component
 import { RegisterServiceService } from '../../shared/services/register/register-service.service';
 import { Subscription } from 'rxjs';
 import { Acceso, UserRegister } from '../../shared/interfaces/register';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,8 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private registerService: RegisterServiceService
+    private registerService: RegisterServiceService,
+    private router: Router
   ) {
     this.formRegister = this.fb.group({
       username: ['', Validators.required],
@@ -90,6 +92,8 @@ export class RegisterComponent {
       next: (response:any) => {
         this.isLoading = false;
         console.log(response);
+        this.formRegister.reset();
+        this.router.navigate(['/login']);
       },
       error: (error) => {
         this.isLoading = false;
