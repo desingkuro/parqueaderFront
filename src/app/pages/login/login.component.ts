@@ -7,17 +7,19 @@ import {
 } from '@angular/forms';
 import { LoginServicesService } from '../../shared/services/login/login-services.service';
 import { Router } from '@angular/router';
+import { LoaderComponent } from "../../shared/components/loader/loader.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, LoaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
   formLogin: FormGroup;
   errorsInputs:string[] = [];
+  isLoading: boolean = false;
   
   constructor(
     bulder: FormBuilder,
@@ -58,14 +60,17 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.verifiForm()) {
       const { correoAcceso, claveAcceso } = this.formLogin.value;
+      this.isLoading = true;
       this.loginService.login({ correoAcceso, claveAcceso }).subscribe({
         next: (response: any) => {
+          this.isLoading = false;
           this.saveLocalStorage(response?.token || '');
           this.formLogin.reset();
           this.errorsInputs = [];
           this.router.navigate(['/home']);
         },
         error: (error) => {
+          this.isLoading = false;
           console.log(error);
         },
       });

@@ -3,7 +3,7 @@
     <h1>Parqueadero UNIMAG</h1>
     <p>Por favor ingresa tus credenciales</p>
     <picture>
-      <img src="./login.svg" alt="Imagen de login">
+      <img src="./login.svg" alt="Imagen de login" />
     </picture>
   </section>
 
@@ -23,7 +23,9 @@
           required
         />
         @if(errorsInputs.includes('correoAcceso')){
-          <label class="alert-message" for="exampleInputEmail1">Corrija su correo</label>
+        <label class="alert-message" for="exampleInputEmail1"
+          >Corrija su correo</label
+        >
         }
       </div>
       <div class="form-group">
@@ -38,21 +40,35 @@
           required
         />
         @if(errorsInputs.includes('claveAcceso')){
-          <label class="alert-message" for="exampleInputPassword1">Corrija su contraseña</label>
+        <label class="alert-message" for="exampleInputPassword1"
+          >Corrija su contraseña</label
+        >
         }
       </div>
       <div class="form-group form-check">
-        <input type="checkbox" formControlName="check" class="form-check-input" id="exampleCheck1" />
+        <input
+          type="checkbox"
+          formControlName="check"
+          class="form-check-input"
+          id="exampleCheck1"
+        />
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
         @if(errorsInputs.includes('check')){
-          <label class="alert-message" for="exampleCheck1">Debe aceptar los terminos y condiciones</label>
+        <label class="alert-message" for="exampleCheck1"
+          >Debe aceptar los terminos y condiciones</label
+        >
         }
       </div>
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+        Submit
+      </button>
       <div class="form-group form-group__register">
         <p>¿No tienes una cuenta?</p>
         <a href="/register">Registrate</a>
       </div>
     </form>
   </section>
+  @if(isLoading){
+  <app-loader></app-loader>
+  }
 </main>
