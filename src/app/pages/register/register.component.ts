@@ -82,7 +82,6 @@ export class RegisterComponent {
     this.userSubscription = this.registerService.registerUser(user).subscribe({
       next: (response:any) => {
         this.isLoading = false;
-        console.log(response?.objGrabado?.codUsuario);
         const acceso:Acceso = {
           correo: this.formRegister.get("email")?.value || "",
           clave: this.formRegister.get("password")?.value || "",
