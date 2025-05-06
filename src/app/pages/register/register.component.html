@@ -16,9 +16,9 @@
           placeholder=""
           formControlName="username"
         />
-        @if(false){
+        @if(errorsInputs.includes('username')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          >Corrija su nombre de usuario.</small
         >
         }
       </div>
@@ -32,9 +32,9 @@
           placeholder=""
           formControlName="apellido"
         />
-        @if(false){
+        @if(errorsInputs.includes('apellido')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          >Corrija su apellido.</small
         >
         }
       </div>
@@ -48,9 +48,9 @@
           placeholder=""
           formControlName="documento"
         />
-        @if(false){
+        @if(errorsInputs.includes('documento')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          >Corrija su numero de documento.</small
         >
         }
       </div>
@@ -61,9 +61,9 @@
           <option value="2">Femenino</option>
           <option value="3">Otro</option>
         </select>
-        @if(false){
+        @if(errorsInputs.includes('genero')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          >Corrija su genero.</small
         >
         }
       </div>
@@ -77,9 +77,9 @@
           placeholder=""
           formControlName="fechaNacimiento"
         />
-        @if(false){
+        @if(errorsInputs.includes('fechaNacimiento')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          >Corrija su fecha de nacimiento.</small
         >
         }
       </div>
@@ -93,9 +93,9 @@
           placeholder=""
           formControlName="telefono"
         />
-        @if(false){
+        @if(errorsInputs.includes('telefono')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+            >Corrija su telefono.</small
         >
         }
       </div>
@@ -109,9 +109,9 @@
           placeholder="Enter email"
           formControlName="email"
         />
-        @if(false){
+        @if(errorsInputs.includes('email')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          >Corrija su email.</small
         >
         }
       </div>
@@ -124,9 +124,9 @@
           placeholder="Password"
           formControlName="password"
         />
-        @if(false){
+        @if(errorsInputs.includes('password')){
         <small id="emailHelp" class="alert-message"
-          >We'll never share your email with anyone else.</small
+          > Corrija su contraseña.</small
         >
         }
       </div>
@@ -134,6 +134,10 @@
       <button type="submit" class="btn btn-primary" (click)="onSubmit()">
         Submit
       </button>
+      <div class="form-group form-group__login">
+        <p>¿Ya tienes una cuenta?</p>
+        <a href="/login">Inicia sesión</a>
+      </div>
     </form>
   </section>
   @if(isLoading){

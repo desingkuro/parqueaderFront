@@ -1,147 +1,225 @@
-.main{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #c5c5da;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.main-section {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 40%;
+  min-width: 460px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.main-section__left {
+  gap: 0px;
+  border-bottom-right-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.main-section__right {
+  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+}
+
+.main-section picture {
+  width: 100%;
+  height: 70%;
+  > img {
     width: 100%;
-    background-color: #C5C5DA;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.main-section{
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-    width: 40%;
-    min-width: 460px;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.main-section__left{
-    gap: 0px;
-    border-bottom-right-radius: 0px !important;
-    border-top-right-radius: 0px !important;
-}
-
-.main-section__right{
-    border-bottom-left-radius: 0px !important;
-    border-top-left-radius: 0px !important;
-}
-
-.main-section picture{
-    width: 100%;
-    height: 70%;
-    >img{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-}
-
-.main-section h1{
-    font-size: 2rem;
-}
-
-.main-section p{
-    font-size: 1.2rem;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-
     height: 100%;
-    min-height: 500px;
-    width: 100%;
-    padding: 10px;
-    gap:40px; 
+    object-fit: contain;
+  }
 }
 
-.form h2{
-    font-size: 2rem;
+.main-section h1 {
+  font-size: 2rem;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    gap: 10px;
-    position: relative;
+.main-section p {
+  font-size: 1.2rem;
 }
 
-.form-group label{
-    font-size: 1.5rem;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+  min-height: 500px;
+  width: 100%;
+  padding: 10px;
+  gap: 40px;
 }
 
-.form-group input{
-    font-size: 1.5rem;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #C5C5DA;
-    outline: none;
-    background-color: transparent;
-    color: #000000;
+.form h2 {
+  font-size: 2rem;
 }
 
-.form-group form-check{
-    font-size: 1.5rem;
-} 
-
-.form-group a{
-    font-size: 1rem;
-    color: #2056A7;
-    text-decoration: none;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  gap: 10px;
+  position: relative;
 }
 
-.form-group__register{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.form-group label {
+  font-size: 1.5rem;
 }
 
-.form-check{
-    font-size: 1rem;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: flex-start;
-    width: 100%;
+.form-group input {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #c5c5da;
+  outline: none;
+  background-color: transparent;
+  color: #000000;
 }
 
-.form-check label{
-    font-size: 1.1rem;
+.form-group form-check {
+  font-size: 1.5rem;
 }
 
-.form button{
-    font-size: 1.5rem;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background-color: #2056A7;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.form-group a {
+  font-size: 1rem;
+  color: #2056a7;
+  text-decoration: none;
 }
 
-.form button:hover{
-    background-color: #1E4A89;
+.form-group__register {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.alert-message{
-    font-size: 1rem !important;
-    color: #FF0000 !important;
-    position: absolute;
-    bottom: -25px;
-    left: 0;
+.form-check {
+  font-size: 1rem;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-start;
+  width: 100%;
 }
 
+.form-check label {
+  font-size: 1.1rem;
+}
 
+.form button {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2056a7;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #1e4a89;
+}
+
+.alert-message {
+  font-size: 1rem !important;
+  color: #ff0000 !important;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}
+
+/******/
+/* Animación principal - Similar al primer formulario */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedores principales */
+.main-section__left,
+.main-section__right {
+  opacity: 0;
+  animation: slideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.main-section__left {
+  animation-delay: 0.4s;
+}
+
+.main-section__right {
+  animation-delay: 0.4s;
+}
+
+/* Animación para elementos internos - Estilo similar al primer formulario */
+.main-section__left > *,
+.form > * {
+  opacity: 0;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+/* Timing para la sección izquierda */
+.main-section__left h1 {
+  animation-delay: 0.4s;
+}
+
+.main-section__left p {
+  animation-delay: 0.5s;
+}
+
+.main-section__left picture {
+  animation-delay: 0.6s;
+}
+
+/* Timing para el formulario (sección derecha) */
+.form h2 {
+  animation-delay: 0.6s;
+}
+
+.form-group:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.form-group:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.form-group:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.form-group:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.form-group__register {
+  animation-delay: 1.1s;
+}
+
+/* Efecto hover similar para el botón */
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}

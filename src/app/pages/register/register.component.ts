@@ -23,6 +23,7 @@ export class RegisterComponent {
   isLoading: boolean = false;
   userSubscription: Subscription | null = null;
   accessSubscription: Subscription | null = null;
+  errorsInputs: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -34,7 +35,7 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       apellido: ['', Validators.required],
-      genero: ['', Validators.required],
+      genero: ['1', Validators.required],
       fechaNacimiento: ['', Validators.required],
       telefono: ['', Validators.required],
       documento: ['', Validators.required],
@@ -58,10 +59,21 @@ export class RegisterComponent {
   }
 
   verifiForm(){
-    if(this.formRegister.valid){  
-      return true;
+    const jsonForm: any = this.formRegister.value;
+    let validForm = true;
+    if (jsonForm) {
+      Object.keys(jsonForm)?.forEach((key: string) => {
+        if (
+          jsonForm[key] === '' ||
+          jsonForm[key] === null ||
+          jsonForm[key] === undefined
+        ) {
+          validForm = false;
+          this.errorsInputs.push(key);
+        }
+      });
     }
-    return false
+    return validForm;
   }
 
   registerUser(user:UserRegister){
@@ -90,15 +102,25 @@ export class RegisterComponent {
     this.isLoading = true;
     this.accessSubscription = this.registerService.registerAcceso(acceso).subscribe({
       next: (response:any) => {
-        this.isLoading = false;
-        console.log(response);
-        this.formRegister.reset();
-        this.router.navigate(['/login']);
+        if(response){
+          this.isLoading = false;
+          this.formRegister.reset();
+          this.router.navigate(['/login']);
+        }
       },
       error: (error) => {
         this.isLoading = false;
         console.log(error);
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.userSubscription) {
+      this.userSubscription.unsubscribe();
+    }
+    if (this.accessSubscription) {
+      this.accessSubscription.unsubscribe();
+    }
   }
 }
