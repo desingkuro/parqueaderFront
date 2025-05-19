@@ -8,7 +8,7 @@ import {
 import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { RegisterServiceService } from '../../shared/services/register/register-service.service';
 import { Subscription } from 'rxjs';
-import { Acceso, UserRegister } from '../../shared/interfaces/register';
+import { Acceso, Register, UserRegister } from '../../shared/interfaces/register';
 import { Router } from '@angular/router';
 
 @Component({
@@ -45,6 +45,7 @@ export class RegisterComponent {
   onSubmit() {
     const verifiForm = this.verifiForm();
     if(verifiForm){
+      let myuuid = crypto.randomUUID();
       const userData:UserRegister = {
         codRol: 1,
         documentoUsuario: this.formRegister.get("documento")?.value || "",
@@ -54,7 +55,13 @@ export class RegisterComponent {
         fechaNacimientoUsuario: this.formRegister.get("fechaNacimiento")?.value || "",
         telefonoUsuario: this.formRegister.get("telefono")?.value || "",
       }
-      this.registerUser(userData);
+      const acceso:Acceso = {
+        correo: this.formRegister.get("email")?.value || "",
+        clave: this.formRegister.get("password")?.value || "",
+        codUsuario: 0,
+        uuid: myuuid || "",
+      }
+      this.registerAcceso({...acceso, ...userData});
     }
   }
 
@@ -75,35 +82,16 @@ export class RegisterComponent {
     }
     return validForm;
   }
-
-  registerUser(user:UserRegister){
-    this.isLoading = true;
-    let myuuid = crypto.randomUUID();
-    this.userSubscription = this.registerService.registerUser(user).subscribe({
-      next: (response:any) => {
-        this.isLoading = false;
-        const acceso:Acceso = {
-          correo: this.formRegister.get("email")?.value || "",
-          clave: this.formRegister.get("password")?.value || "",
-          codUsuario: response?.objGrabado?.codUsuario || 0,
-          uuid: myuuid || "",
-        }
-        this.registerAcceso(acceso);
-      },
-      error: (error) => {
-        this.isLoading = false;
-        console.log(error);
-      },
-    });
-  }
   
-  registerAcceso(acceso:Acceso){
+  registerAcceso(data:Register){
     this.isLoading = true;
-    this.accessSubscription = this.registerService.registerAcceso(acceso).subscribe({
+    this.accessSubscription = this.registerService.registerAcceso(data).subscribe({
       next: (response:any) => {
         if(response){
+          console.log(response);
           this.isLoading = false;
           this.formRegister.reset();
+          this.errorsInputs = [];
           this.router.navigate(['/login']);
         }
       },
@@ -117,7 +105,7 @@ export class RegisterComponent {
   ngOnDestroy(): void {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
-    }
+    } 
     if (this.accessSubscription) {
       this.accessSubscription.unsubscribe();
     }
