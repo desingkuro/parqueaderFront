@@ -1,0 +1,19 @@
+.footer-container {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer-text {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
