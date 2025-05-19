@@ -1,56 +1,89 @@
 /* Estilos del contenido principal */
 .main-content {
   flex: 1;
-  padding: 2rem;
+  padding: 3rem;
   font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  min-height: calc(100vh - 80px);
 }
 
 .main-content h2 {
   color: #2c3e50;
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .main-content p {
   color: #34495e;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Estilos para las tarjetas de características */
 .home-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 3rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-card {
   flex: 1;
-  min-width: 250px;
-  background-color: #ecf0f1;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  min-width: 280px;
+  max-width: 350px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border-top: 5px solid #3498db;
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
+  z-index: 0;
 }
 
 .feature-card h3 {
   color: #2c3e50;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
   border-bottom: 2px solid #3498db;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-card p {
-  color: #7f8c8d;
-  font-size: 1rem;
-  line-height: 1.5;
+  color: #5d6d7e;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
