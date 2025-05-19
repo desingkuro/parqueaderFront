@@ -14,3 +14,16 @@ export interface Acceso {
     codUsuario: number;
     uuid: string;
 }
+
+export interface Register {
+    codRol: number;
+    documentoUsuario: string;
+    nombresUsuario: string;
+    apellidosUsuario: string;
+    generoUsuario: string;
+    fechaNacimientoUsuario: string;
+    telefonoUsuario: string;
+    correo: string;
+    clave: string;
+    uuid: string;
+}
