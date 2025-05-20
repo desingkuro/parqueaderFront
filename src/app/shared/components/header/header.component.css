@@ -9,29 +9,7 @@
   position: relative;
 }
 
-.auth-buttons {
-  display: flex;
-  gap: 20px;
-}
 
-.auth-button {
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.auth-button:hover {
-  background-color: #ffffff;
-  color: #3498db;
-  border-color: #3498db;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-}
 
 .logo h1 {
   color: #ffffff;
