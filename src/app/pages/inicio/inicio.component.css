@@ -29,29 +29,47 @@
 
 button {
   padding: 10px 20px;
+  border: none;
   border-radius: 5px;
-  font-weight: 500;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .login-btn {
-  background-color: #0066cc;
-  border: 1px solid #024b95;
-  color: #fefefe;
+  background-color:rgb(70, 122, 243) ;
+  color: white;
+ ;
 }
 
 .login-btn:hover {
-  background-color: #4c8ccb;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .register-btn {
-  background-color: #0066cc;
-  border: 1px solid #024b95;
+  background-color: #4CAF50;
   color: white;
 }
 
 .register-btn:hover {
-  background-color: #4c8ccb;
+  background-color: rgba(255, 255, 255, 0.1);
 }
+
+.landing-contenido {
+align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 40px;;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+.landing-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 40px;
+}
+    

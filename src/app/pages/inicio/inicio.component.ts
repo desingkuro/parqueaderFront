@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'app-inicio',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  templateUrl: './inicio.component.html',
+  styleUrls: ['./inicio.component.css']
 })
-export class LandingComponent {
+export class InicioComponent {
   constructor(private router: Router) {}
 
   navigateToLogin() {
